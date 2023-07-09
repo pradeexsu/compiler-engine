@@ -5,14 +5,10 @@
     "target": "ES2022",
     "sourceMap": true,
     "outDir": "dist",
-    "noEmit": true,
-    "allowImportingTsExtensions": true,
-    "paths": {
-      "@services/*": ["./src/services/*"],
-      "@router": ["./src/router.ts"],
-      "@controller/*": ["./src/controller/*"],
-      "@utils/*": ["./src/utils/*"]
-    }
+    "noImplicitAny": true,
+    "skipLibCheck": true
   },
-  "include": ["src/**/*"]
+  "lib": ["ES2022"],
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

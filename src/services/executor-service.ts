@@ -1,11 +1,16 @@
 import util from 'node:util'
 import { exec } from 'child_process'
-
-const execute = util.promisify(exec)
 import fs from 'fs/promises'
-import { executionCmd, extension } from '@utils/constant.ts'
+const execute = util.promisify(exec)
 
-export const executor = async ({ code, input, lang }) => {
+import { executionCmd, extension } from '../utils/constant.js'
+import { ExecutInputType, ExecutOutputType } from '../utils/typings.js'
+
+export const executor = async ({
+  code,
+  input,
+  lang,
+}: ExecutInputType): Promise<ExecutOutputType> => {
   const copyCodePromise = Promise.all([
     fs.writeFile(`code.${extension[lang]}`, code),
     fs.writeFile('input', input),
@@ -22,7 +27,7 @@ export const executor = async ({ code, input, lang }) => {
       error: false,
     }
   } catch (err) {
-    return { output: err.stderr, error: true }
+    return { output: err?.stderr, error: true }
   } finally {
     exec(`rm -rf code.${extension[lang]} input a.out`)
   }

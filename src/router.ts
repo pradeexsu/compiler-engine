@@ -1,6 +1,6 @@
 import { Request, Response, Router } from 'express'
-import { executorController } from '@controller/executor-controller.ts'
-import { fetchCode, uploadCode } from '@controller/code-controller.ts'
+import { executorController } from './controller/executor-controller.js'
+import { fetchCode, uploadCode } from './controller/code-controller.js'
 
 export const routes = Router()
 
