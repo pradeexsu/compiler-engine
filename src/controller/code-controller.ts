@@ -1,5 +1,5 @@
 import { Request, Response, Router } from 'express'
-import { getCode, saveCode } from '../services/code-service.js'
+import { getCode, saveCode } from '@services/code-service.ts'
 export const cache = Router()
 
 export const fetchCode = async (request: Request, response: Response) => {

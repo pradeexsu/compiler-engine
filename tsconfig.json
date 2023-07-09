@@ -4,7 +4,15 @@
     "moduleResolution": "nodenext",
     "target": "ES2022",
     "sourceMap": true,
-    "outDir": "dist"
+    "outDir": "dist",
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "paths": {
+      "@services/*": ["./src/services/*"],
+      "@router": ["./src/router.ts"],
+      "@controller/*": ["./src/controller/*"],
+      "@utils/*": ["./src/utils/*"]
+    }
   },
   "include": ["src/**/*"]
 }

@@ -1,4 +1,4 @@
-import { executor } from '../services/executor-service.js'
+import { executor } from '@services/executor-service.ts'
 
 export const executorController = async (request, response) => {
   const { body } = request

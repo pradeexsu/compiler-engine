@@ -3,7 +3,7 @@ import { exec } from 'child_process'
 
 const execute = util.promisify(exec)
 import fs from 'fs/promises'
-import { executionCmd, extension } from '../utils/constant.js'
+import { executionCmd, extension } from '@utils/constant.ts'
 
 export const executor = async ({ code, input, lang }) => {
   const copyCodePromise = Promise.all([
