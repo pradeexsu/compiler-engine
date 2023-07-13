@@ -3,8 +3,9 @@ FROM node:16
 RUN mkdir /code
 WORKDIR /code
 
-COPY package.json  ./
+COPY package*.json  ./
 RUN npm i
+RUN npx prisma generate  
 COPY . .
 RUN npm run build
 
