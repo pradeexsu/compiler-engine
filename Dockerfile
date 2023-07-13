@@ -4,8 +4,9 @@ RUN mkdir /code
 WORKDIR /code
 
 COPY package*.json  ./
+COPY prisma/schema.prisma ./
 RUN npm i
-RUN npx prisma generate  
+RUN npx prisma generate
 COPY . .
 RUN npm run build
 
