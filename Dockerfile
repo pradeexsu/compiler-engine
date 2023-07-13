@@ -5,6 +5,8 @@ WORKDIR /code
 
 COPY package*.json  ./
 COPY prisma/schema.prisma ./
+COPY /etc/secrets/.env ./
+
 RUN npm i
 RUN npx prisma generate
 COPY . .
