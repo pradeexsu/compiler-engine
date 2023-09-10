@@ -2,6 +2,7 @@ import redis from 'redis'
 import { PrismaClient } from '@prisma/client'
 
 import { SaveCodeRequest, CodeData } from '../utils/typings.js'
+import { log } from 'console'
 
 const prismaClient = new PrismaClient()
 prismaClient
@@ -9,7 +10,10 @@ prismaClient
   .then(() => {
     console.log('Prisma Connection Success!!')
   })
-  .catch(() => {
+  .catch((err) => {
+    log(process.env.DATABASE_URL)
+    log(err)
+
     console.log('Prisma Connection Failed!!')
   })
 
@@ -23,7 +27,8 @@ redisClient
   .then(() => {
     console.log('Redis Connection Successful!!')
   })
-  .catch(() => {
+  .catch((err) => {
+    log(err)
     console.log('Redis Connection Failed!!')
   })
 
